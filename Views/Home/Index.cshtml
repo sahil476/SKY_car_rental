@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid p-0">
+    <div class="row justify-content-end m-0">
+        <div class="col-md-12 p-0">
+            <div class="card border-0" style="position: relative;">
+                <img src="@Url.Content("~/images/homecar.jpg")" alt="Alternate text" style="width: 100%; height: auto; border-radius: 0;" />
+                <div class="card-body" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+                    <h2>Booking Cars Made Easy</h2>
+                    <h4>Book your favorite car at a very low price and enjoy the ride.</h4>
+                    <a asp-controller="Home" asp-action="Cars" class="btn btn-primary btn-block mb-4" style="color: white;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

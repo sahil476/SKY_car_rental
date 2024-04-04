@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Payment";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .car-image {
+            float: left; /* Float image to the left */
+            width: 40%; /* Adjust image width */
+            margin-right: 20px; /* Add some spacing between image and text */
+            border-radius: 5px;
+        }
+
+        .car-details {
+            margin-top: 20px;
+            overflow: hidden; /* Clear floats */
+        }
+
+            .car-details h2 {
+                color: #333;
+            }
+
+            .car-details p {
+                color: #666;
+            }
+
+        .payment-form {
+            margin-top: 20px;
+        }
+
+            .payment-form input[type="text"],
+            .payment-form input[type="number"],
+            .payment-form input[type="email"],
+            .payment-form input[type="date"],
+            .payment-form input[type="time"],
+            .payment-form input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            .payment-form input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+            }
+
+                .payment-form input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 20px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lightgreen; /* Change background color to green */
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px 0 rgba(255,255,255);
+        }
+
+            .popup p {
+                margin: 0;
+                color: black; /* Change text color to black */
+            }
+
+            .popup .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="~/images/BMW_M4-GTS.jpg" alt="Car Image" class="car-image">
+        <div class="car-details">
+            <h2>Car Details</h2>
+            <p>Model: BMW M4 GTS</p>
+            <p>Year: 2024</p>
+            <p>Price: ₹ 2500/-</p>
+        </div>
+        <form class="payment-form" action="#" method="post" onsubmit="return processPayment()">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="card_number" placeholder="Card Number" required>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <label for="start_time">Start Time:</label>
+            <input type="time" id="start_time" name="start_time" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <label for="end_time">End Time:</label>
+            <input type="time" id="end_time" name="end_time" required>
+            <input type="number" name="cvv" placeholder="CVV" required>
+            <input type="submit" value="Pay Now">
+        </form>
+    </div>
+
+    <!-- Popup message for successful payment -->
+    <div id="paymentSuccessMessage" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>Payment successful!</p>
+    </div>
+
+    <script>
+        // Function to process payment
+        function processPayment() {
+            // Simulating successful payment
+            // You can replace this with your actual payment processing logic
+            setTimeout(function () {
+                document.getElementById("paymentSuccessMessage").style.display = "block";
+            }, 2000); // 2000 milliseconds = 2 seconds (simulating delay)
+
+            // Prevent form submission
+            return false;
+        }
+
+        // Function to close popup
+        function closePopup() {
+            document.getElementById("paymentSuccessMessage").style.display = "none";
+        }
+    </script>
+</body>
+</html>
